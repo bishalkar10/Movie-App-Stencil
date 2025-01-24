@@ -1,5 +1,4 @@
 import { Config } from '@stencil/core';
-
 // https://stenciljs.com/docs/config
 
 export const config: Config = {
@@ -14,4 +13,10 @@ export const config: Config = {
       baseUrl: 'https://myapp.local/',
     },
   ],
+  env: {
+    BEARER_TOKEN: process.env.BEARER_TOKEN,
+  },
+  devServer: {
+    reloadStrategy: 'hmr', // Hot Module Reloading to see local changes without refreshing the page
+  },
 };

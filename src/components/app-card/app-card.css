@@ -1,0 +1,18 @@
+.app-card-container {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 10rem;
+  flex-shrink: 0;
+}
+.image-container {
+  width: 100%;
+  aspect-ratio: 160/240;
+}
+.app-card-container img {
+  width: 100%;
+  aspect-ratio: 160/240;
+  object-fit: cover;
+  border-radius: 1rem;
+}

@@ -8,6 +8,10 @@
   Any global CSS variables should also be applied here.
 */
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0px;
   padding: 0px;
