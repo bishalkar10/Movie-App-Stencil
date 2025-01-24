@@ -5,7 +5,7 @@ import { Component, Prop, h } from '@stencil/core';
   styleUrl: 'app-card.css',
 })
 export class AppCard {
-  @Prop() key: number;
+  @Prop() itemId: number;
   @Prop() mediaType: 'person' | 'tv' | 'movie';
   @Prop() name: string;
   @Prop() rating: string | number;
@@ -14,7 +14,7 @@ export class AppCard {
 
   render() {
     return (
-      <li key={this.key} class="app-card-container">
+      <li key={this.itemId} class="app-card-container">
         <div class="image-container">
           <img src={this.imageURL} alt={`Photo of ${this.name}`} />
         </div>

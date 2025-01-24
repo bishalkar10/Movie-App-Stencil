@@ -1,8 +1,7 @@
-import { Component, h, Env, State, Watch } from '@stencil/core';
-import { Router } from '../../';
+import { Component, h, State, Watch } from '@stencil/core';
 
 // import { trendingMovie, trendingPeople } from '../../global/trendingJson';
-import { discover, getTrending, getByID, search, TrendingParams, ExtendedType, MediaType } from '../../global/api';
+import { discover, getTrending, TrendingParams, MediaType } from '../../global/api';
 import { DiscoverParams } from '../../global/api';
 import { genres } from '../../global/genre';
 
@@ -217,7 +216,7 @@ export class AppHome {
             {this.discoverData?.map(item => {
               return (
                 <app-card
-                  key={item.id}
+                  itemId={item.id}
                   mediaType={item.media_type} // Type assertion
                   name={item.title || item.original_title || item.name || item.original_name}
                   rating={item.vote_average}

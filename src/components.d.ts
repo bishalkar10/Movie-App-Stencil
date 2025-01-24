@@ -9,7 +9,7 @@ export namespace Components {
     interface AppCard {
         "airDate": string;
         "imageURL": string;
-        "key": number;
+        "itemId": number;
         "mediaType": 'person' | 'tv' | 'movie';
         "name": string;
         "rating": string | number;
@@ -58,7 +58,7 @@ declare namespace LocalJSX {
     interface AppCard {
         "airDate"?: string;
         "imageURL"?: string;
-        "key"?: number;
+        "itemId"?: number;
         "mediaType"?: 'person' | 'tv' | 'movie';
         "name"?: string;
         "rating"?: string | number;
