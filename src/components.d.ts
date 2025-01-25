@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { OptionType } from "./components/custom-select/custom-select";
+export { OptionType } from "./components/custom-select/custom-select";
 export namespace Components {
     interface AppCard {
         "airDate": string;
@@ -21,6 +23,18 @@ export namespace Components {
     }
     interface AppRoot {
     }
+    interface CustomSelect {
+        "allowClear": boolean;
+        "clearSelectionText": string;
+        "options": OptionType[];
+        "placeholder": string;
+        "selectedOption": OptionType;
+        "setSelectedOption": (option: OptionType) => Promise<void>;
+    }
+}
+export interface CustomSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLCustomSelectElement;
 }
 declare global {
     interface HTMLAppCardElement extends Components.AppCard, HTMLStencilElement {
@@ -47,11 +61,29 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLCustomSelectElementEventMap {
+        "selectChange": OptionType;
+    }
+    interface HTMLCustomSelectElement extends Components.CustomSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLCustomSelectElementEventMap>(type: K, listener: (this: HTMLCustomSelectElement, ev: CustomSelectCustomEvent<HTMLCustomSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLCustomSelectElementEventMap>(type: K, listener: (this: HTMLCustomSelectElement, ev: CustomSelectCustomEvent<HTMLCustomSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLCustomSelectElement: {
+        prototype: HTMLCustomSelectElement;
+        new (): HTMLCustomSelectElement;
+    };
     interface HTMLElementTagNameMap {
         "app-card": HTMLAppCardElement;
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
+        "custom-select": HTMLCustomSelectElement;
     }
 }
 declare namespace LocalJSX {
@@ -70,11 +102,20 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
+    interface CustomSelect {
+        "allowClear"?: boolean;
+        "clearSelectionText"?: string;
+        "onSelectChange"?: (event: CustomSelectCustomEvent<OptionType>) => void;
+        "options"?: OptionType[];
+        "placeholder"?: string;
+        "selectedOption"?: OptionType;
+    }
     interface IntrinsicElements {
         "app-card": AppCard;
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
+        "custom-select": CustomSelect;
     }
 }
 export { LocalJSX as JSX };
@@ -85,6 +126,7 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "custom-select": LocalJSX.CustomSelect & JSXBase.HTMLAttributes<HTMLCustomSelectElement>;
         }
     }
 }

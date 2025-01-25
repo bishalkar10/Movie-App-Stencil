@@ -12,17 +12,21 @@ export class AppRoot {
       <div>
         <header>
           <h1 onClick={() => Router.push('/')}>Movie Gallery</h1>
-          <div>
+          <form>
             <input placeholder="Search" />
-            <label>
-              <select id="category-select" name="category" aria-label="Category">
-                <option value="all">All</option>
-                <option value="movie">Movie</option>
-                <option value="tv">TV</option>
-                <option value="person">Person</option>
-              </select>
-            </label>
-          </div>
+            <button>search</button>
+            <custom-select
+              options={[
+                { label: 'All', value: 'all' },
+                { label: 'Movie', value: 'movie' },
+                { label: 'TV', value: 'tv' },
+                { label: 'Person', value: 'person' },
+              ]}
+              selectedOption={{ label: 'Movie', value: 'movie' }}
+              allowClear={false}
+              onSelectChange={() => console.log('nothing happend - Zoro')}
+            />
+          </form>
         </header>
 
         <main>
@@ -30,7 +34,10 @@ export class AppRoot {
             <Route path="/">
               <app-home />
             </Route>
-            <Route path={match('/profile/:name')} render={({ name }) => <app-profile name={name} />} />
+            <Route
+              path={match('/profile/:name')}
+              render={({ name }) => <app-profile name={name} />}
+            />
           </Router.Switch>
         </main>
       </div>
