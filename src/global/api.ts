@@ -18,10 +18,8 @@ https://api.themoviedb.org/3/person/84958
 
 export type MediaType = 'movie' | 'tv';
 
-export type ExtendedType = 'all' | 'movie' | 'tv' | 'person';
-
 export interface TrendingParams {
-  type: ExtendedType;
+  type: 'all' | 'movie' | 'tv' | 'person';
   time_window: 'day' | 'week';
 }
 
@@ -36,7 +34,7 @@ export interface GetByIDParams {
 }
 
 export interface SearchParams {
-  type: ExtendedType;
+  type: 'multi' | 'movie' | 'tv' | 'person';
   query: string;
 }
 
@@ -73,7 +71,10 @@ async function discover({ type, with_genres }: DiscoverParams): Promise<any> {
  * @returns {Promise<any>} The JSON response from the API.
  * @throws {Error} If the request fails or returns an error.
  */
-async function getTrending({ type, time_window }: TrendingParams): Promise<any> {
+async function getTrending({
+  type,
+  time_window,
+}: TrendingParams): Promise<any> {
   const url = `/trending/${type}/${time_window}`;
   const path = BASE_URL + url;
   const response = await fetch(path, { headers });
@@ -105,7 +106,7 @@ async function getByID({ type, id }: GetByIDParams): Promise<any> {
 }
 
 async function search({ type, query }: SearchParams) {
-  const url = `/search/${type}?${query}`;
+  const url = `/search/${type}?query=${query}`;
 
   const path = BASE_URL + url;
   const response = await fetch(path, { headers });

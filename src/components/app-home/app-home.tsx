@@ -1,6 +1,5 @@
 import { Component, h, State, Watch } from '@stencil/core';
 
-import { trendingMovie, trendingPeople } from '../../global/trendingJson';
 import {
   discover,
   getTrending,
@@ -10,10 +9,10 @@ import {
 import { DiscoverParams } from '../../global/api';
 import { genres } from '../../global/genre';
 
-interface BaseMedia {
+export interface MediaItem {
   id: number;
   media_type: 'movie' | 'tv' | 'person';
-  title?: string; // Title for movies
+  title?: string;
   original_title?: string;
   adult?: boolean;
   popularity?: number;
@@ -29,34 +28,16 @@ interface BaseMedia {
   name?: string;
   original_name?: string;
   overview?: string;
-}
-
-interface Movie extends BaseMedia {
-  media_type: 'movie';
-  release_date: string;
-}
-
-interface TV extends BaseMedia {
-  media_type: 'tv';
-  first_air_date: string;
-}
-
-interface Person extends BaseMedia {
-  media_type: 'person';
-  known_for_department: string;
   gender: number;
-  profile_path: string;
 }
-
-type MediaItem = Movie | TV | Person;
 
 @Component({
   tag: 'app-home',
   styleUrl: 'app-home.css',
 })
 export class AppHome {
-  @State() trendingData: MediaItem[] = trendingMovie.results as MediaItem[];
-  @State() discoverData: MediaItem[] = trendingPeople.results as MediaItem[];
+  @State() trendingData: MediaItem[] = [];
+  @State() discoverData: MediaItem[] = [];
   @State() discoverParams: DiscoverParams = {
     type: 'movie',
     with_genres: '',
@@ -127,8 +108,8 @@ export class AppHome {
   }
 
   componentWillLoad() {
-    // this.fetchDiscoverData();
-    // this.fetchTrendingData();
+    this.fetchDiscoverData();
+    this.fetchTrendingData();
   }
 
   render() {
@@ -159,7 +140,7 @@ export class AppHome {
                   { label: 'Week', value: 'week' },
                 ]}
                 selectedOption={{ label: 'Day', value: 'day' }}
-                allowClear={false} // This select field must have one value so we shouldn't clear it
+                allowClear={false} // If the select field must have one value so we shouldn't clear it
                 onSelectChange={e =>
                   this.updateTrendingParams(
                     'time_window',
@@ -174,7 +155,7 @@ export class AppHome {
               return (
                 <app-card
                   key={item.id}
-                  mediaType={item.media_type} // Type assertion
+                  mediaType={item.media_type}
                   name={
                     item.title ||
                     item.original_title ||

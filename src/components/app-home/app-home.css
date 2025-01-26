@@ -1,23 +1,24 @@
-/* .app-home {
-  padding: 10px;
-} */
+@import '../../global/app.css';
 
 .section-header {
   width: 100%;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   background-color: #ccd5ae;
   display: flex;
+  align-items: center;
 }
 
 .options-container {
   display: flex;
+  align-items: center;
   gap: 1rem;
   margin-left: auto;
 }
 
 h2 {
-  margin: 0;
+  font-weight: 500;
   font-size: 1.2rem;
+  color: #344e41;
 }
 
 .home-trending-section ul,

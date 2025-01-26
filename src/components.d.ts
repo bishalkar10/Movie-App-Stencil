@@ -16,6 +16,8 @@ export namespace Components {
         "name": string;
         "rating": string | number;
     }
+    interface AppHeader {
+    }
     interface AppHome {
     }
     interface AppRoot {
@@ -28,6 +30,18 @@ export namespace Components {
         "selectedOption": OptionType;
         "setSelectedOption": (option: OptionType) => Promise<void>;
     }
+    interface SearchResultCard {
+        "airDate": string;
+        "imageURL": string;
+        "itemId": number;
+        "mediaType": 'person' | 'tv' | 'movie';
+        "name": string;
+        "rating": string | number;
+    }
+    interface SearchResults {
+        "query": string;
+        "type": any;
+    }
 }
 export interface CustomSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -39,6 +53,12 @@ declare global {
     var HTMLAppCardElement: {
         prototype: HTMLAppCardElement;
         new (): HTMLAppCardElement;
+    };
+    interface HTMLAppHeaderElement extends Components.AppHeader, HTMLStencilElement {
+    }
+    var HTMLAppHeaderElement: {
+        prototype: HTMLAppHeaderElement;
+        new (): HTMLAppHeaderElement;
     };
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
     }
@@ -69,11 +89,26 @@ declare global {
         prototype: HTMLCustomSelectElement;
         new (): HTMLCustomSelectElement;
     };
+    interface HTMLSearchResultCardElement extends Components.SearchResultCard, HTMLStencilElement {
+    }
+    var HTMLSearchResultCardElement: {
+        prototype: HTMLSearchResultCardElement;
+        new (): HTMLSearchResultCardElement;
+    };
+    interface HTMLSearchResultsElement extends Components.SearchResults, HTMLStencilElement {
+    }
+    var HTMLSearchResultsElement: {
+        prototype: HTMLSearchResultsElement;
+        new (): HTMLSearchResultsElement;
+    };
     interface HTMLElementTagNameMap {
         "app-card": HTMLAppCardElement;
+        "app-header": HTMLAppHeaderElement;
         "app-home": HTMLAppHomeElement;
         "app-root": HTMLAppRootElement;
         "custom-select": HTMLCustomSelectElement;
+        "search-result-card": HTMLSearchResultCardElement;
+        "search-results": HTMLSearchResultsElement;
     }
 }
 declare namespace LocalJSX {
@@ -84,6 +119,8 @@ declare namespace LocalJSX {
         "mediaType"?: 'person' | 'tv' | 'movie';
         "name"?: string;
         "rating"?: string | number;
+    }
+    interface AppHeader {
     }
     interface AppHome {
     }
@@ -97,11 +134,26 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         "selectedOption"?: OptionType;
     }
+    interface SearchResultCard {
+        "airDate"?: string;
+        "imageURL"?: string;
+        "itemId"?: number;
+        "mediaType"?: 'person' | 'tv' | 'movie';
+        "name"?: string;
+        "rating"?: string | number;
+    }
+    interface SearchResults {
+        "query"?: string;
+        "type"?: any;
+    }
     interface IntrinsicElements {
         "app-card": AppCard;
+        "app-header": AppHeader;
         "app-home": AppHome;
         "app-root": AppRoot;
         "custom-select": CustomSelect;
+        "search-result-card": SearchResultCard;
+        "search-results": SearchResults;
     }
 }
 export { LocalJSX as JSX };
@@ -109,9 +161,12 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "app-card": LocalJSX.AppCard & JSXBase.HTMLAttributes<HTMLAppCardElement>;
+            "app-header": LocalJSX.AppHeader & JSXBase.HTMLAttributes<HTMLAppHeaderElement>;
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "custom-select": LocalJSX.CustomSelect & JSXBase.HTMLAttributes<HTMLCustomSelectElement>;
+            "search-result-card": LocalJSX.SearchResultCard & JSXBase.HTMLAttributes<HTMLSearchResultCardElement>;
+            "search-results": LocalJSX.SearchResults & JSXBase.HTMLAttributes<HTMLSearchResultsElement>;
         }
     }
 }
