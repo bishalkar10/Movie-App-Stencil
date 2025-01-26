@@ -1,6 +1,6 @@
 import { Component, h, State, Watch } from '@stencil/core';
 
-// import { trendingMovie, trendingPeople } from '../../global/trendingJson';
+import { trendingMovie, trendingPeople } from '../../global/trendingJson';
 import {
   discover,
   getTrending,
@@ -55,8 +55,8 @@ type MediaItem = Movie | TV | Person;
   styleUrl: 'app-home.css',
 })
 export class AppHome {
-  @State() trendingData: MediaItem[];
-  @State() discoverData: MediaItem[];
+  @State() trendingData: MediaItem[] = trendingMovie.results as MediaItem[];
+  @State() discoverData: MediaItem[] = trendingPeople.results as MediaItem[];
   @State() discoverParams: DiscoverParams = {
     type: 'movie',
     with_genres: '',
@@ -127,8 +127,8 @@ export class AppHome {
   }
 
   componentWillLoad() {
-    this.fetchDiscoverData();
-    this.fetchTrendingData();
+    // this.fetchDiscoverData();
+    // this.fetchTrendingData();
   }
 
   render() {
@@ -138,7 +138,7 @@ export class AppHome {
       <div class="app-home">
         <section class="home-trending-section">
           <div class="section-header">
-            Trending
+            <h2>Trending</h2>
             <div class="options-container">
               <custom-select
                 options={[
@@ -191,7 +191,7 @@ export class AppHome {
         </section>
         <section class="home-discover-section">
           <div class="section-header">
-            Discover
+            <h2>Discover</h2>
             <div class="options-container">
               <custom-select
                 options={[

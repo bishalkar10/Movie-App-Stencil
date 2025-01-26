@@ -15,7 +15,7 @@
     "@types/jest": "^29.5.6",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
-    "puppeteer": "^21.11.0",
+    "puppeteer": "^24.1.1",
     "stencil-router-v2": "^0.6.0"
   },
   "license": "MIT",

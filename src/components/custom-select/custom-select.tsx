@@ -34,8 +34,6 @@ export class CustomSelect {
     this.localOption = option;
   }
 
-  private dropDownElement: HTMLElement;
-
   toggleDropdown(expand: null | boolean = null) {
     this.isOpen = expand !== null ? expand : !this.isOpen;
   }
@@ -49,21 +47,6 @@ export class CustomSelect {
   componentWillLoad() {
     this.localOption = this.selectedOption; // Initialize the internal state
   }
-
-  // private handleClickOutside = (event: MouseEvent) => {
-  //   console.log('outside click');
-  //   if (!this.dropDownElement.contains(event.target as Node)) {
-  //     this.toggleDropdown(false);
-  //   }
-  // };
-
-  // componentDidLoad() {
-  //   document.addEventListener('click', this.handleClickOutside);
-  // }
-
-  // disconnectedCallback() {
-  //   document.removeEventListener('click', this.handleClickOutside);
-  // }
 
   render() {
     return (
@@ -82,12 +65,7 @@ export class CustomSelect {
           <span class="arrow"></span>
         </button>
 
-        <ul
-          ref={el => (this.dropDownElement = el)}
-          role="listbox"
-          class="select-dropdown"
-          hidden={!this.isOpen}
-        >
+        <ul role="listbox" class="select-dropdown" hidden={!this.isOpen}>
           {this.options.map(option => (
             <li
               role="option"

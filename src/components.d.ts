@@ -18,9 +18,6 @@ export namespace Components {
     }
     interface AppHome {
     }
-    interface AppProfile {
-        "name": string;
-    }
     interface AppRoot {
     }
     interface CustomSelect {
@@ -49,12 +46,6 @@ declare global {
         prototype: HTMLAppHomeElement;
         new (): HTMLAppHomeElement;
     };
-    interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {
-    }
-    var HTMLAppProfileElement: {
-        prototype: HTMLAppProfileElement;
-        new (): HTMLAppProfileElement;
-    };
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
     var HTMLAppRootElement: {
@@ -81,7 +72,6 @@ declare global {
     interface HTMLElementTagNameMap {
         "app-card": HTMLAppCardElement;
         "app-home": HTMLAppHomeElement;
-        "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
         "custom-select": HTMLCustomSelectElement;
     }
@@ -97,9 +87,6 @@ declare namespace LocalJSX {
     }
     interface AppHome {
     }
-    interface AppProfile {
-        "name"?: string;
-    }
     interface AppRoot {
     }
     interface CustomSelect {
@@ -113,7 +100,6 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "app-card": AppCard;
         "app-home": AppHome;
-        "app-profile": AppProfile;
         "app-root": AppRoot;
         "custom-select": CustomSelect;
     }
@@ -124,7 +110,6 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "app-card": LocalJSX.AppCard & JSXBase.HTMLAttributes<HTMLAppCardElement>;
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-            "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "custom-select": LocalJSX.CustomSelect & JSXBase.HTMLAttributes<HTMLCustomSelectElement>;
         }

@@ -5,7 +5,6 @@
 .section-header {
   width: 100%;
   padding: 1rem;
-  margin: 1rem 0;
   background-color: #ccd5ae;
   display: flex;
 }
@@ -16,6 +15,11 @@
   margin-left: auto;
 }
 
+h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
 .home-trending-section ul,
 .home-discover-section ul {
   display: flex;
@@ -23,7 +27,7 @@
   overflow-x: scroll;
   padding: 2rem 1rem;
   background-color: #a3b18a;
-  margin: 0;
+  margin: 0 0 1rem 0;
 }
 
 .home-trending-section ul::-webkit-scrollbar,

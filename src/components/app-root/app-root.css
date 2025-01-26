@@ -9,13 +9,12 @@ header {
   width: 100%;
   position: relative;
   z-index: 100;
+  padding: 1rem;
 }
 
 h1 {
   font-size: 1.4rem;
-  font-weight: 500;
   color: #344e41;
-  padding: 0 12px;
   cursor: pointer;
 }
 
