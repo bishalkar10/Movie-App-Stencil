@@ -128,6 +128,18 @@ table {
   border-spacing: 0;
 }
 
+/* styling here */
+:root {
+  --primary-color: #344e41;
+
+  --bg-primary-color: #a3b18a;
+  --bg-secondary-color: #e9edc9;
+  --bg-tertiary-color: #ccd5ae;
+
+  --text-primary-color: #dad7cd;
+  --text-secondary-color: white;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -136,9 +148,5 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: 'Poppins';
-  background-color: #a3b18a;
-}
-
-:root {
-  --background-color: #778da9;
+  background-color: var(--secondary-color);
 }
