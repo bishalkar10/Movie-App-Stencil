@@ -50,25 +50,32 @@ export class CustomSelect {
 
   render() {
     return (
-      <div class="custom-select" part="custom-select">
+      <div class="custom-select" part="container">
         <button
           class="select-button"
+          part="select-button"
           aria-label="Select button"
           aria-haspopup="listbox"
           role="combobox"
           aria-expanded={this.isOpen.toString()}
           onClick={() => this.toggleDropdown()}
         >
-          <span class="selected-value">
+          <span class="selected-value" part="selected-value">
             {this.localOption?.label || this.placeholder}
           </span>
-          <span class="arrow"></span>
+          <span class="arrow" part="arrow"></span>
         </button>
 
-        <ul role="listbox" class="select-dropdown" hidden={!this.isOpen}>
+        <ul
+          role="listbox"
+          class="select-dropdown"
+          part="dropdown"
+          hidden={!this.isOpen}
+        >
           {this.options.map(option => (
             <li
               role="option"
+              part="option"
               onClick={() => this.handleOptionSelect(option)}
               class={this.localOption?.value === option.value ? 'selected' : ''}
             >
@@ -78,10 +85,11 @@ export class CustomSelect {
           {this.allowClear && (
             <li
               role="option"
+              part="clear-option"
               data-value="clear"
               onClick={() => this.handleOptionSelect({ label: '', value: '' })}
             >
-              <span>{this.clearSelectionText}</span>
+              <span part="clear-option-text">{this.clearSelectionText}</span>
             </li>
           )}
         </ul>
