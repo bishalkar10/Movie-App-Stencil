@@ -37,3 +37,13 @@ form input {
 form input:focus {
   outline: 0.2rem solid #344e41;
 }
+
+@media (width < 40rem) {
+  form input {
+    width: 6rem;
+  }
+
+  custom-select::part(custom-select) {
+    width: 5rem;
+  }
+}

@@ -1,8 +1,14 @@
 @import '../../global/app.css';
 
 .results-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   width: 100%;
+}
+
+@media (width < 48rem) {
+  .results-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

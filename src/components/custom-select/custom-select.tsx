@@ -50,7 +50,7 @@ export class CustomSelect {
 
   render() {
     return (
-      <div class="custom-select">
+      <div class="custom-select" part="custom-select">
         <button
           class="select-button"
           aria-label="Select button"

@@ -49,7 +49,6 @@ export class AppSearchResults {
   }
 
   render() {
-    console.log('search-results component rendered');
     return (
       <div class="search-results">
         {this.isLoading && <p>Loading...</p>}

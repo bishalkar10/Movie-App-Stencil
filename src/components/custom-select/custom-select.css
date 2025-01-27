@@ -9,6 +9,7 @@
 }
 
 .select-button {
+  font-size: inherit;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -82,4 +83,15 @@
 
 .select-button[aria-expanded='true'] .arrow {
   transform: rotate(180deg);
+}
+
+@media (width < 48rem) {
+  .custom-select {
+    width: 8rem;
+    font-size: 0.8rem;
+  }
+
+  .select-button {
+    padding: 0.675rem;
+  }
 }

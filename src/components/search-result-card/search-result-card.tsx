@@ -16,7 +16,6 @@ export class searchResultCard {
   private baseImgPath = 'https://image.tmdb.org/t/p/w500/';
 
   render() {
-    console.log('rendered component');
     return (
       <li key={this.itemId} class="search-result-card-container">
         <div class="image-container">

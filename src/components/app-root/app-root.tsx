@@ -16,9 +16,6 @@ export class AppRoot {
             <Route path="/">
               <app-home />
             </Route>
-            <Route path="/profile">
-              <search-results />
-            </Route>
             <Route
               path={match('/:type/query=:query')}
               render={({ type, query }) => (
