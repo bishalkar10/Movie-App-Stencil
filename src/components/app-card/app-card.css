@@ -27,6 +27,13 @@
   padding: 0.8rem;
   display: flex;
   flex-direction: column;
+  text-align: center;
   gap: 0.5rem;
   color: var(--text-primary-color);
+}
+
+@media (width < 48rem) {
+  .text-container {
+    font-size: 0.8rem;
+  }
 }
