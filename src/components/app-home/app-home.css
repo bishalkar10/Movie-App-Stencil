@@ -57,6 +57,20 @@ h2 {
   background: transparent;
 }
 
+@media (width < 48rem) {
+  .home-trending-section ul,
+  .home-discover-section ul {
+    margin: 0;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .home-trending-section ul::-webkit-scrollbar,
+  .home-discover-section ul::-webkit-scrollbar {
+    display: none; /* For WebKit browsers */
+  }
+}
+
 @media (width < 40rem) {
   #instance1::part(custom-select) {
     width: 8rem;
