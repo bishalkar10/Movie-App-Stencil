@@ -50,7 +50,7 @@ export class CustomSelect {
 
   render() {
     return (
-      <div class="custom-select" part="container">
+      <div class="custom-select" part="custom-select">
         <button
           class="select-button"
           part="select-button"
