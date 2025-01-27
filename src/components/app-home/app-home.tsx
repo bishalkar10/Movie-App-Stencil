@@ -187,6 +187,8 @@ export class AppHome {
               />
 
               <custom-select
+                id="instance1"
+                exportparts="custom-select"
                 ref={el => (this.customSelectRef = el)}
                 placeholder="Select a Genre"
                 options={filteredGenres?.map(([key, value]) => ({

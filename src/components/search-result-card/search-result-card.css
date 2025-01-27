@@ -6,7 +6,7 @@
   gap: 1rem;
   width: 100%;
   flex-shrink: 0;
-  background-color: #344e41;
+  background-color: var(--primary-color);
   padding: 0.5rem;
   height: 100%;
 }
@@ -26,5 +26,5 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  color: #dad7cd;
+  color: var(--text-primary-color);
 }

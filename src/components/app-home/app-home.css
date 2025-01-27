@@ -3,7 +3,7 @@
 .section-header {
   width: 100%;
   padding: 0.5rem 1rem;
-  background-color: #ccd5ae;
+  background-color: var(--bg-tertiary-color);
   display: flex;
   align-items: center;
 }
@@ -18,7 +18,7 @@
 h2 {
   font-weight: 500;
   font-size: 1.2rem;
-  color: #344e41;
+  color: var(--primary-color);
 }
 
 .home-trending-section ul,
@@ -27,7 +27,7 @@ h2 {
   gap: 1rem;
   overflow-x: scroll;
   padding: 2rem 1rem;
-  background-color: #a3b18a;
+  background-color: var(--bg-primary-color);
   margin: 0 0 1rem 0;
 }
 
@@ -38,13 +38,13 @@ h2 {
 
 .home-trending-section ul::-webkit-scrollbar-track-piece,
 .home-discover-section ul::-webkit-scrollbar-track-piece {
-  background: #dad7cd;
+  background: var(--text-primary-color);
   border-radius: 25px;
 }
 
 .home-trending-section ul::-webkit-scrollbar-thumb,
 .home-discover-section ul::-webkit-scrollbar-thumb {
-  background: #344e41;
+  background: var(--primary-color);
   border-radius: 25px;
 }
 
@@ -55,4 +55,10 @@ h2 {
   width: 25%;
   display: block;
   background: transparent;
+}
+
+@media (width < 40rem) {
+  #instance1::part(custom-select) {
+    width: 8rem;
+  }
 }
