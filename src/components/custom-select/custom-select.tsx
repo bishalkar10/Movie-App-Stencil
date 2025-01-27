@@ -23,7 +23,7 @@ export class CustomSelect {
   @Prop() placeholder: string = 'Select an option';
   @Prop() clearSelectionText: string = 'Clear selection';
   @Prop() selectedOption: OptionType; // This optional prop is the default option set
-  @Prop() allowClear: boolean = true; // while passing selectedOption value always set this value to false
+  @Prop() allowClear: boolean = true; // Pass this prop as `false` if you want the select-option field to require a selection and not allow clearing the selection.
 
   @State() localOption: OptionType;
   @State() isOpen: boolean = false;
