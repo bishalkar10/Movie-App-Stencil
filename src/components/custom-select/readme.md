@@ -1,7 +1,19 @@
 # custom-select Component
 
-A reusable dropdown select component built with Stencil.js for internal use.
-The component design follows reusability and flexiblity to style everything in the component to be styled. No limitations.
+A reusable dropdown select component built with Stencil.js for internal use. Designed with reusability and flexibility in mind, this component allows for complete customization of its styling. It adheres to best practices by avoiding the use of CSS properties as props and inline styling, ensuring a clean separation of concerns.
+
+The component is configured with `{ shadow: true }`, which scopes its CSS. This guarantees that its styling remains unaffected by external styles, preventing accidental overrides or conflicts.
+
+## Key Features
+
+- **Reusable and Flexible**  
+  Designed to be easily integrated into various projects with customizable styling.
+
+- **Encapsulated Styling**  
+  Utilizes Shadow DOM to ensure style encapsulation, preventing unintended style conflicts.
+
+- **No Inline Styling**  
+  Encourages the use of external stylesheets for better maintainability.
 
 ## Props
 
@@ -41,7 +53,7 @@ private customSelectRef: HTMLCustomSelectElement;
 2. Set the variable as ref to the component
 
 <!-- prettier-ignore -->
-```html
+```jsx
 <custom-select 
 	id="instance1" 
 	exportparts="custom-select" 
@@ -80,14 +92,14 @@ The `custom-select` component exposes the following CSS parts for styling:
 You can target these parts using the `::part` pseudo-element in your CSS:
 
 <!-- prettier-ignore -->
-```html
+```jsx
 <custom-select
 	id="genre-select"
 	exportparts="select-button option"
-	options='[
+	options={[
 		{ "label": "Horror", "value": "horror" },
 		{ "label": "Action", "value": "action" }
-	]'
+	]}
 	placeholder="Choose an option"
 	selectedOption={{ "label": "Option 1", "value": "1" }}
 	allowClear={false}
@@ -114,24 +126,24 @@ custom-select::part(option):hover {
 ## Example
 
 <!-- prettier-ignore -->
-```html
+```jsx
 <custom-select
-	options='[
+	options={[
 		{ "label": "Option 1", "value": "1" },
-		{ "label": "Option 2", "value": "2" }
-	]'
+		{ "label": "Option 2", "value": "2" },
+	]}
 	placeholder="Choose an option"
 	onSelectChange={(e) => console.log(e.detail)}
 />
 ```
 
 <!-- prettier-ignore -->
-```html
+```jsx
 <custom-select
-	options='[
+	options={[
 		{ "label": "Option 1", "value": "1" },
-		{ "label": "Option 2", "value": "2" }
-	]'
+		{ "label": "Option 2", "value": "2" },
+	]}
 	placeholder="Choose an option"
 	selectedOption={{ "label": "Option 1", "value": "1" }}
 	allowClear={false}
